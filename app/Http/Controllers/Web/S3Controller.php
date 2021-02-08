@@ -186,10 +186,13 @@ class S3Controller extends Controller
         $newName = $request->get('name');
         $newPath = preg_replace('/[^\/]*$/', $newName, $oldPath, 1);
         preg_match('/.+(?=\/)/', $newPath, $parentDirectory);
-
         Storage::disk('s3')->move($oldPath, $newPath);
 
-        return redirect()->route('s3-open-folder', ['path' => $parentDirectory[0]]);
+        if ($parentDirectory){
+            return redirect()->route('s3-open-folder', ['path' => $parentDirectory[0]]);
+        }
+
+        return redirect()->route('s3-open-folder', ['path' => '']);
     }
 
     /**

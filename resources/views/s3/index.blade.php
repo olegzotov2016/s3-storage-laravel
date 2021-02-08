@@ -13,7 +13,7 @@
                         <div class="col-md-6 d-flex align-items-middle">
                             <h5 class="mb-0 card-title">
                                 <i class="fas fa-layer-group"></i>
-                                FTP
+                                S3 Storage
                             </h5>
                         </div>
                         <div class="col-md-6 text-right">
@@ -65,7 +65,7 @@
                                   action="{{ route('s3-delete-file', ['file' => $file, 'path' => $parentDirectory]) }}"
                                   method="POST">
                                 <a class="btn btn-secondary btn-sm"
-                                   href="{{ route('s3-download-file', ['path' => $file]) }}">
+                                   href="{{ route('s3-download-file', ['file' => $file]) }}">
                                     <i class="fas fa-download"></i>
                                 </a>
                                 <a class="btn btn-secondary btn-sm"
